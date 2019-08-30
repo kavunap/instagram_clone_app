@@ -17,8 +17,11 @@
         <td><%= post.description %></td>
         <td><%= image_tag post.image.url, class: 'img-fluid img-thumbnail' %></td>
         <td><%= post.user.email %></td>
+        <% if user_signed_in? %>
         <td><%= link_to 'Show', post,class: 'btn btn-info' %></td>
+        <% end %>
         <% if post.user == current_user %>
+        
         <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning' %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
         <% end %>

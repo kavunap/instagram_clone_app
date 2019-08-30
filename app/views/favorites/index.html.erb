@@ -1,0 +1,22 @@
+<h1> favorited posts</h1>
+<table >
+  <thead>
+    <tr class = "table-success">
+      <th>Who liked the post</th>
+      <th>Creator</th>
+      <th>Post</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   
+    <% Favorite.all.each do |f| %>
+      <tr class = "table-active">
+        <td><%= f.user.email %></td>
+        <td><%= f.post.user.email %></td>
+        <td><%= image_tag f.post.image.url %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

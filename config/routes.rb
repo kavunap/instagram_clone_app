@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'contacts/create'
   #get 'contacts/new'
   #get 'favorites/index'
   #get 'favorites/create'
   #get 'favorites/destroy'
-  devise_for :users
   root to: "posts#index"
   resources :favorites
   resources :profiles

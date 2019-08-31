@@ -44,15 +44,14 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1.json
   def update
     respond_to do |format|
-      if @pfofile.present?
         if @profile.update(profile_params)
           format.html { redirect_to posts_path, notice: 'Profile was successfully updated.' }
-          #format.json { render :show, status: :ok, location: @profile }
+          format.json { render :show, status: :ok, location: @profile }
         else
           format.html { render :edit }
           format.json { render json: @profile.errors, status: :unprocessable_entity }
         end
-      end
+    
     end
   end
 

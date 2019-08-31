@@ -57,7 +57,7 @@
     <% if current_user.profile.image? %>         
     
       <p><%= image_tag current_user.profile.image.url, class:"rounded-circle" %></p>
-    
+        
       <%= link_to 'Edit Profile picture', edit_profile_path(current_user), class: "btn btn-success " %>
      <% end %> 
     <% end %>

@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def confirm
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     @post.user_id = current_user.id
     render :new if @post.invalid?
   end

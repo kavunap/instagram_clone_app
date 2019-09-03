@@ -9,4 +9,8 @@
   <%= form.submit  "confirm", class:'btn btn-success' %>
 <% end %>
 
-<%= link_to 'back', :back %>
+<%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |form| %>
+    <%= form.hidden_field :description %>
+    <%= form.hidden_field :image %>
+    <%= form.submit "back", name: 'back' %>
+  <% end %>

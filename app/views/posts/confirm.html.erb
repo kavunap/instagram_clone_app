@@ -1,0 +1,12 @@
+<h3>Send it with the following contents.</h3>
+
+<%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+  <%= form.hidden_field :description %>
+  <%= form.hidden_field :image %>
+
+  <p>Description:<%= @post.description %></p>
+  <p>Image:<%= image_tag @post.image.url %></p>
+  <%= form.submit  "confirm", class:'btn btn-success' %>
+<% end %>
+
+<%= link_to 'back', :back %>

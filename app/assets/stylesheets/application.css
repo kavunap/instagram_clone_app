@@ -19,3 +19,13 @@
 ul li a{
     padding-left: 30px;
 }
+.prof{
+    padding: 50px;
+  /*transition: transform .2s; /* Animation */
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+.prof:hover{
+    transform: scale(3);
+}

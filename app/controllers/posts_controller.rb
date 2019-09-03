@@ -16,7 +16,17 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = current_user.posts.build
+    if params[:back]
+      @post = current_user.posts.build(post_params)
+    else
+      @post = current_user.posts.build
+    end
+  end
+
+  def confirm
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    render :new if @post.invalid?
   end
 
   # GET /posts/1/edit
@@ -27,6 +37,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save

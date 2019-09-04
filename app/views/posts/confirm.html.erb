@@ -5,7 +5,7 @@
   <%= form.hidden_field :image %>
 
   <p>Description:<%= @post.description %></p>
-  <p>Image:<%= image_tag @post.image.url %></p>
+  <p>Image:<%=  @post.image.url %></p>
   <%= form.submit  "confirm", class:'btn btn-success' %>
 <% end %>
 

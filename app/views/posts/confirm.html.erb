@@ -1,16 +1,16 @@
 <h3>Send it with the following contents.</h3>
 
 <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
-  <%= form.hidden_field :description %>
-  <%= form.hidden_field :image %>
-
+  
   <p>Description:<%= @post.description %></p>
-  <p>Image:<%=  @post.image.url %></p>
+  <p>Image:<%= image_tag (@post.image.url) if @post.image && @post.image.url %></p>
+  <%= form.hidden_field :description %>
+  <%= form.hidden_field :image_cache %>
   <%= form.submit  "confirm", class:'btn btn-success' %>
 <% end %>
 
 <%= form_with(model: @post, url: new_post_path, local: true, method: 'get') do |form| %>
     <%= form.hidden_field :description %>
-    <%= form.hidden_field :image %>
-    <%= form.submit "back", name: 'back' %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.submit "back", name: 'back', class: "btn btn-warning" %>
   <% end %>

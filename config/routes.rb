@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root to: "posts#index"
   resources :favorites
   resources :profiles
-  resources :posts
+  #resources :posts
   resources :posts do
     collection do
       post :confirm

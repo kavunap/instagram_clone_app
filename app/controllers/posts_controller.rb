@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    #@post = current_user.posts.build
     if params[:back]
       @post = current_user.posts.build(post_params)
     else
@@ -82,6 +83,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :image)
+      params.require(:post).permit(:description, :image, :image_cache)
     end
 end
